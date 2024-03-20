@@ -3,12 +3,12 @@
 apt-get update
 apt-get remove --purge --auto-remove cmake
 apt-get update
-apt-get install -y software-properties-common lsb-release curl
+DEBIAN_FRONTEND=noninteractive apt-get install -y software-properties-common lsb-release curl
 apt-get clean all
 curl https://apt.kitware.com/kitware-archive.sh | bash
 apt-get install -y cmake
 
-apt-get -y install sudo git curl build-essential pkg-config bison flex autoconf  \
+DEBIAN_FRONTEND=noninteractive apt-get -y install sudo git curl build-essential pkg-config bison flex autoconf  \
    binutils-dev libevent-dev acl-dev libfmt-dev libjemalloc-dev libiberty-dev    \
    libdouble-conversion-dev liblz4-dev liblzma-dev libssl-dev libunwind-dev      \
    libboost-filesystem-dev libboost-program-options-dev libboost-system-dev      \
@@ -32,4 +32,4 @@ update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-12 150
 git clone https://github.com/jordansissel/fpm.git
 cd fpm && git checkout tags/v1.15.1 && cd ../
 gem install tebako
-tebako press --root='./fpm' --entry=fpm --output=fpm-arm64-exe -R 2.7.8
+tebako press --Ruby 2.7.8 --root='./fpm' --entry=fpm --output=fpm-arm64-exe
