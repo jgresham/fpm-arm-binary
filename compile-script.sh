@@ -30,5 +30,6 @@ update-alternatives --install /usr/bin/clang++ clang++ /usr/bin/clang++-12 150
 
 
 git clone https://github.com/jordansissel/fpm.git
+cd fpm && git checkout tags/v1.15.1 && cd ../
 gem install tebako
 tebako press --root='./fpm' --entry=fpm --output=fpm-arm64-exe -R 2.7.8
